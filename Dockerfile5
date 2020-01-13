@@ -1,0 +1,5 @@
+FROM python:3.7
+WORKDIR /usr/app
+RUN pip install --no-cache-dir shttp redis
+COPY ./hello5.py ./hello-app.py
+CMD ["python", "hello-app.py"]
