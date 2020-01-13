@@ -32,10 +32,10 @@ def redis_init(redis_host):
         # redis_conn = redis.Redis(host=redis_host, port=6379, db=0)
         redis_conn = redis.Redis(connection_pool=redis_pool)
         if redis_conn.ping():
-            print ('Redis is used and Connected!')
+            print('Redis is used and Connected!')
             return True
     except Exception as ex:
-        print ('Error:', ex, 'Redis is not used!')
+        print('Error:', ex, 'Redis is not used!')
         return False
 
 
@@ -85,7 +85,7 @@ class SERVER(http.server.SimpleHTTPRequestHandler):
 
 
 def signal_handler(sig, frame):
-    print ("\nStopped.")
+    print("\nStopped.")
     sys.exit(0)
 
 
@@ -95,7 +95,7 @@ def run(server_class=http.server.HTTPServer, handler_class=SERVER, port=8000):
     signal.signal(signal.SIGINT, signal_handler)
     global use_redis
     use_redis = redis_init(redis_host)
-    print ('HTTP server started')
+    print('HTTP server started')
     httpd.serve_forever()
 
 
