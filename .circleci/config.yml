@@ -33,9 +33,13 @@ jobs:
       - run:
           name: meta-data
           command: |
+<<<<<<< HEAD
             python3 -m venv venv
             . venv/bin/activate
             VERSION=$(python3 ./hello-app.py --version)
+=======
+            VERSION=$(./hello-app.py --version)
+>>>>>>> 346674f7430c6b4a650093c9d76d62cf14471d91
             echo "Version: ${VERSION}\nCommitID: ${CIRCLE_SHA1}\n > ./version.txt"
       - run:
           name: run tests
