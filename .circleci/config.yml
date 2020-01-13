@@ -36,8 +36,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             VERSION=$(python3 ./hello-app.py --version)
-            echo \"Version: ${VERSION}\nCommitID: ${CIRCLE_SHA1}\n > ./version.txt\"
-            echo "$CIRCLE_BRANCH\n ${VERSION}\n ${CIRCLE_SHA1}"
+            echo -e \"AppVersion: ${VERSION}\n CommitID: ${CIRCLE_SHA1}\n PrevBuildNum: ${CIRCLE_PREVIOUS_BUILD_NUM}\n Branch: $CIRCLE_BRANCH\n\" > ./version.txt
       - run:
           name: run tests
           command: |
