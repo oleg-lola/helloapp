@@ -54,6 +54,7 @@ def get_credentials(target_folder):
         exit(101)
     return credentials
 
+
 class SERVER(http.server.SimpleHTTPRequestHandler):
     def _set_headers(self):
         self.send_header('Server', 'Not your fkn bussines')

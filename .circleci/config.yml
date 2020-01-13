@@ -48,7 +48,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pycodestyle --ignore=E501  ./hello-app.py
+            pycodestyle -v --ignore=E501  ./hello-app.py
 
       - store_artifacts:
           path: test-reports
