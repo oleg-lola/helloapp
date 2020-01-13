@@ -3,7 +3,6 @@
 Very simple HTTP server in python.
 Usage::
     ./hello-server.py [<port>]
-version: 2.0
 """
 import http.server
 import signal
@@ -22,6 +21,7 @@ redis_host = os.getenv('redis_host', 'redis')
 get_num = 0
 use_redis = False
 redis_pool = None
+app_version = '1.5'
 
 
 def redis_init(redis_host):
@@ -101,7 +101,9 @@ def run(server_class=http.server.HTTPServer, handler_class=SERVER, port=8000):
 
 if __name__ == "__main__":
     from sys import argv
-
+    if argv[1] == '--version':
+        print(app_version)
+        sys.exit(0)
     if len(argv) == 2:
         run(port=int(argv[1]))
     else:
