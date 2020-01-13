@@ -33,6 +33,7 @@ jobs:
       - run:
           name: meta-data
           command: |
+            python3 -m venv venv
             . venv/bin/activate
             VERSION=$(python3 ./hello-app.py --version)
             echo \"Version: ${VERSION}\nCommitID: ${CIRCLE_SHA1}\n > ./version.txt\"
@@ -41,6 +42,10 @@ jobs:
           command: |
             . venv/bin/activate
             pycodestyle -v --ignore=E501  ./hello-app.py
+      - run:
+          name: check the data
+          command: |
+            cat ./version.txt
       - store_artifacts:
           path: test-reports
           destination: test-reports
