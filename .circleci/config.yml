@@ -54,6 +54,8 @@ jobs:
       #     path: test-reports
       #     destination: test-reports
   test1:
+    docker:
+      - image: circleci/python:3.6.1
     steps:
       # - attach_workspace:
       #     at: ~/
