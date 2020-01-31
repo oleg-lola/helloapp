@@ -41,9 +41,10 @@ jobs:
             pwd
             ls -la
       - persist_to_workspace:
-        root: .
-        paths:
-          - .
+          root: .
+          paths:
+            - .
+          
       # - run:
       #     name: run tests
       #     command: |
