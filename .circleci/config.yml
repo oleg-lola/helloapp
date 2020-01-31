@@ -55,6 +55,7 @@ jobs:
       #     path: test-reports
       #     destination: test-reports
   test1:
+    working_directory: ~/hello-repo
     docker:
       - image: circleci/python:3.6.1
     steps:
